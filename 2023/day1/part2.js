@@ -22,8 +22,6 @@ for(let line of input){
     let secondInt = line.match(re).reverse();
     let combinedInts = firstInt[0] + secondInt[0];
 
-    console.log(combinedInts)
-
     sum += +combinedInts;
 }
 
