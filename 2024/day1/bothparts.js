@@ -1,7 +1,6 @@
 import utils from '../../utils/index.js';
 let year = 2024;
 let day = 1;
-let part = 'A';
 let sum = 0;
 let sum2 = 0;
 const list1 = [];
@@ -21,4 +20,4 @@ for (let [index, value] of list1.entries()) {
 
 }
 
-utils.logOutput(year, day, part, sum, sum2)
+utils.logOutput(year, day, undefined, sum, sum2)
