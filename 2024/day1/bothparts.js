@@ -1,4 +1,4 @@
-const utils = require('../../utils/index.js');
+import utils from '../../utils/index.js';
 
 let year = 2024;
 let day = 1;
