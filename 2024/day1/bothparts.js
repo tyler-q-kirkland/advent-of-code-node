@@ -1,4 +1,5 @@
-import utils from '../../utils/index.js';
+const utils = require('../../utils/index.js');
+
 let year = 2024;
 let day = 1;
 let sum = 0;
@@ -6,18 +7,23 @@ let sum2 = 0;
 const list1 = [];
 const list2 = [];
 
-let input = utils.getInput();
+const input = utils.getInput();
+
 for (let line of input) {
-    const splitInput = line.split("   ")
-    list1.push(splitInput.slice(0, 1));
-    list2.push(splitInput.slice(1, 2));
-}
-list1.sort((a, b) => (a - b))
-list2.sort((a, b) => (a - b))
-for (let [index, value] of list1.entries()) {
-    sum += Math.abs(value - list2[index]);
-    sum2 += value * list2.filter((list2) => list2.includes(value[0])).length;
+    const splitInput = line.split("   ");
 
+    list1.push(splitInput[0]);
+    list2.push(splitInput[1]);
 }
 
-utils.logOutput(year, day, undefined, sum, sum2)
+list1.sort((a, b) => (a - b));
+list2.sort((a, b) => (a - b));
+
+for (let i = 0; i < list1.length; i++) {
+    const value = list1[i];
+
+    sum += Math.abs(value - list2[i]);
+    sum2 += value * list2.filter((num) => num === value).length;
+}
+
+utils.logOutput(year, day, undefined, sum, sum2);
