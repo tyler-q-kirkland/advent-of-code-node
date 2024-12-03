@@ -1,9 +1,10 @@
 function getInput() {
-    let fs = require('fs');
-    let puzzleString = fs.readFileSync('input.txt').toString();
+    let input = require('./index.js');
+    let puzzleString = input.getInputUnfiltered();
     let puzzleInput = puzzleString.split('\n');
     let puzzleInputFiltered = puzzleInput.filter(elm => elm);
-    return puzzleInputFiltered
+    return puzzleInputFiltered;
 }
+
 
 module.exports = getInput;
