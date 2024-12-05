@@ -1,13 +1,10 @@
 import utils from '../../utils/index.js';
 
-function drawMatrix(input) {
-    let xmasMatrix = [];
+function drawMatrix(input, xmasMatrix) {
     for (let line of input) {
         let lineArray = line.split("");
-
         xmasMatrix.push(lineArray);
     }
-    return xmasMatrix
 }
 
 function searchMatrix(matrix, i, j, direction) {
@@ -23,7 +20,8 @@ function searchMatrix(matrix, i, j, direction) {
             break;
         }
     }
-    return (joinedLetters === searchChars || joinedLetters === searchCharsReversed ? true : false);
+    return joinedLetters === searchChars || 
+        joinedLetters === searchCharsReversed;
 }
 
 const year = 2024;
@@ -32,10 +30,11 @@ const part = 'A';
 const searchChars = 'XMAS';
 const searchCharsReversed = 'SAMX';
 const searchDirections = ['RIGHT', 'DOWNRIGHT', 'DOWN', 'DOWNLEFT'];
+const xmasMatrix = [];
 let sum = 0;
 
 const input = utils.getInput();
-let xmasMatrix = drawMatrix(input);
+drawMatrix(input, xmasMatrix);
 
 for (let i = 0; i < xmasMatrix.length; i++) {
     for (let j = 0; j < xmasMatrix[i].length; j++) {
