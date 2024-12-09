@@ -7,11 +7,16 @@ let sum = 0;
 
 function checkMap(a, b) {
     const followingNumbers = ruleMap.get(a);
+    if (followingNumbers === undefined) {
+        return 0;
+    }
     const found = (element) => element === b;
     if (followingNumbers.some(found)) {
         return -1;
-    } else {
+    } else if (!(followingNumbers.some(found)) && a !== b) {
         return 1;
+    } else {
+        return 0;
     }
 }
 
@@ -20,7 +25,7 @@ const inputSplit = input.split(/\n\n/);
 const ruleArray = inputSplit[0].split('\n');
 const updateArray = inputSplit[1].split('\n');
 const ruleMap = new Map();
-const validArray = [];
+const validatedArray = [];
 
 for (let i = 0; i < ruleArray.length; i++) {
     let rulePair = ruleArray[i].split('|');
@@ -36,18 +41,17 @@ for (let i = 0; i < ruleArray.length; i++) {
 
 
 for (let i = 0; i < updateArray.length; i++) {
-    let order = updateArray[i].split(',');
-    const sortedLine = order.sort(checkMap);
-    if (!(sortedLine == order)) {
-        console.log('Test')
-        validArray.push(sortedLine);
+    const order = updateArray[i].split(',');
+    let sortedLine = order.toSorted(checkMap);
+    if (JSON.stringify(sortedLine) != JSON.stringify(order)) {
+        validatedArray.push(sortedLine);
     }
 }
 
-console.log(validArray);
+console.log(validatedArray);
 
-for (let i = 0; i < validArray.length; i++) {
-    const middleValue = validArray[i][Math.floor(validArray[i].length / 2)]
+for (let i = 0; i < validatedArray.length; i++) {
+    const middleValue = validatedArray[i][Math.floor(validatedArray[i].length / 2)]
     sum += +middleValue;
 }
 
