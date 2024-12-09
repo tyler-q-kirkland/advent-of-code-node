@@ -2,21 +2,21 @@ import utils from '../../utils/index.js';
 
 const input = utils.getInput();
 
-function iterateResults(expectedResult, currentResult, integers, index) {
+function iterateResults(expecResult, currentResult, integers, index) {
     let additionResult = currentResult + +integers[index];
-    let multiplicationResult = currentResult * +integers[index];
-    let concatenationResult = +`${currentResult}${integers[index]}`;
-        if (additionResult == expectedResult || multiplicationResult == expectedResult || concatenationResult == expectedResult ) {
+    let multResult = currentResult * +integers[index];
+    let concatResult = +`${currentResult}${integers[index]}`;
+        if (additionResult == expecResult || multResult == expecResult || concatResult == expecResult ) {
         return true;
     }
 
     if (index < integers.length-1) {
         index += 1;
-        if (additionResult < expectedResult && iterateResults(expectedResult, additionResult, integers, index)) {
+        if (additionResult < expecResult && iterateResults(expecResult, additionResult, integers, index)) {
             return true
-        } else if (multiplicationResult < expectedResult && iterateResults(expectedResult, multiplicationResult, integers, index)) {
+        } else if (multResult < expecResult && iterateResults(expecResult, multResult, integers, index)) {
             return true
-        } else if (concatenationResult < expectedResult && iterateResults(expectedResult, concatenationResult, integers, index)) {
+        } else if (concatResult < expecResult && iterateResults(expecResult, concatResult, integers, index)) {
             return true    
         } else {
             return false
@@ -37,4 +37,4 @@ for (let line of input) {
     }
 }
 
-utils.logOutput('2024', '6', 'A', sum);
+utils.logOutput('2024', '7', 'B', sum);
