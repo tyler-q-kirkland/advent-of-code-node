@@ -73,6 +73,5 @@ const input = utils.getInputUnfiltered();
 let expandedDiskMap = expandDiskMap(input);
 let expandedDiskString = buildDiskString(expandedDiskMap);
 fragmentDiskMap(expandedDiskMap, expandedDiskString);
-console.log(expandedDiskMap);
 let checksum = calculateChecksum(expandedDiskMap);
-utils.logOutput(2024, 9, 'A', checksum);
+utils.logOutput(2024, 9, 'B', checksum);
