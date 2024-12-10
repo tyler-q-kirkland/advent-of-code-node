@@ -82,4 +82,4 @@ antennaMap.forEach((value) => {
 })
 
 const uniqeAntinodes = [...new Set(antinodes)];
-utils.logOutput(2024, 8, 'A', uniqeAntinodes.length);
+utils.logOutput(2024, 8, 'B', uniqeAntinodes.length);
