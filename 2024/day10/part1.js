@@ -1,9 +1,9 @@
 import utils from '../../utils/index.js';
 
-function drawMatrix(input, Matrix) {
+function drawMatrix(input, matrix) {
     for (let line of input) {
         let lineArray = line.toString(10).split("").map(Number)
-        Matrix.push(lineArray);
+        matrix.push(lineArray);
     }
 }
 
