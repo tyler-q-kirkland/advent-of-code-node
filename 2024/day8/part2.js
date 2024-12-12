@@ -80,7 +80,6 @@ function extendNodes(
   }
 }
 
-let sum = 0;
 let matrix = [];
 let antinodes = [];
 const input = utils.getInput();

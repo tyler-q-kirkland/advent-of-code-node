@@ -54,7 +54,6 @@ const adjacentDirection = {
   retrieveLeft: (coordinates) => [coordinates[0], coordinates[1] - 1],
 };
 
-let sum = 0;
 const input = utils.getInput();
 let matrix = [];
 let reachedPeaks = new Set();

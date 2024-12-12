@@ -1,0 +1,22 @@
+{
+  "name": "advent-of-code-node",
+  "version": "1.0.0",
+  "description": "Tyler Kirkland's Advent of Code Node attempts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/tyler-q-kirkland/advent-of-code-node"
+  },
+  "keywords": [
+    "advent",
+    "of",
+    "code",
+    "node",
+    "advent"
+  ],
+  "author": "Tyler Kirkland",
+  "license": "ISC"
+}

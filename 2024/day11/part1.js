@@ -15,7 +15,7 @@ for (let num in numArray) {
     } else if (Math.floor(Math.log10(numbersToProcess[i]) + 1) % 2 === 0) {
       console.log("even");
     } else if (Math.floor(Math.log10(numbersToProcess[i]) + 1) % 2 === 1) {
-      console.log("false");
+      console.log("odd");
     }
   }
 }
