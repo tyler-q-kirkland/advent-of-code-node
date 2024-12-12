@@ -1,4 +1,4 @@
-import utils from "../../utils/index.js";
+import * as utils from "../../utils/utils.js";
 
 let sum = 0;
 const input = utils.getInputUnfiltered();
@@ -12,9 +12,9 @@ for (let num in numArray) {
     if (numbersToProcess[i] === 0) {
       newNumbers.push(1);
       console.log("zero");
-    } else if (Math.floor(Math.log10(numbersToProcess[i]) + 1) % 2 === 0) {
+    } else if (numbersToProcess[i].toString().length % 2 === 0) {
       console.log("even");
-    } else if (Math.floor(Math.log10(numbersToProcess[i]) + 1) % 2 === 1) {
+    } else {
       console.log("odd");
     }
   }

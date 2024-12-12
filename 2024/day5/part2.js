@@ -1,4 +1,4 @@
-import utils from "../../utils/index.js";
+import * as utils from "../../utils/utils.js";
 
 const year = 2024;
 const day = 5;
@@ -45,8 +45,6 @@ for (let i = 0; i < updateArray.length; i++) {
     validatedArray.push(sortedLine);
   }
 }
-
-console.log(validatedArray);
 
 for (let i = 0; i < validatedArray.length; i++) {
   const middleValue =

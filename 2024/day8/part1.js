@@ -1,4 +1,4 @@
-import utils from "../../utils/index.js";
+import * as utils from "../../utils/utils.js";
 
 function drawMatrix(input, Matrix) {
   for (let line of input) {
@@ -76,8 +76,6 @@ getAntenna(matrix, antennaMap);
 antennaMap.forEach((value) => {
   antinodes.push(...validateAntinodes(value, h, w));
 });
-
-console.log(antinodes);
 
 const uniqeAntinodes = [...new Set(antinodes)];
 utils.logOutput(2024, 8, "A", uniqeAntinodes.length);

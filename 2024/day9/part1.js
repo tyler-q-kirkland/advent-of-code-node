@@ -1,4 +1,4 @@
-import utils from "../../utils/index.js";
+import * as utils from "../../utils/utils.js";
 
 function expandDiskMap(diskMap) {
   const expandedDiskMap = [];

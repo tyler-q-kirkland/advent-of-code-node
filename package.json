@@ -2,7 +2,6 @@
   "name": "advent-of-code-node",
   "version": "1.0.0",
   "description": "Tyler Kirkland's Advent of Code Node attempts",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,5 +17,6 @@
     "advent"
   ],
   "author": "Tyler Kirkland",
-  "license": "ISC"
+  "license": "ISC",
+  "type": "module"
 }
