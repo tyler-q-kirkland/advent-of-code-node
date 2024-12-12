@@ -9,7 +9,7 @@ function stoneLookup(number, blinks) {
   }
 }
 
-const blinks = 25;
+const blinks = 75;
 let sum = 0;
 const resultCache = {};
 const input = utils.getInputUnfiltered();
@@ -55,4 +55,4 @@ function calculateStones(number, blinks) {
   return result;
 }
 
-utils.logOutput("2024", "11", "A", sum);
+utils.logOutput("2024", "11", "B", sum);
