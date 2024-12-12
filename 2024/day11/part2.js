@@ -9,16 +9,6 @@ function stoneLookup(number, blinks) {
   }
 }
 
-const blinks = 75;
-let sum = 0;
-const resultCache = {};
-const input = utils.getInputUnfiltered();
-const stoneArray = input.split(" ");
-
-for (let stone of stoneArray) {
-  sum += calculateStones(+stone, blinks);
-}
-
 function calculateStones(number, blinks) {
   if (blinks === 0) {
     return 1;
@@ -53,6 +43,16 @@ function calculateStones(number, blinks) {
   }
   resultCache[number][blinks] = result;
   return result;
+}
+
+const blinks = 75;
+let sum = 0;
+const resultCache = {};
+const input = utils.getInputUnfiltered();
+const stoneArray = input.split(" ");
+
+for (let stone of stoneArray) {
+  sum += calculateStones(+stone, blinks);
 }
 
 utils.logOutput("2024", "11", "B", sum);
