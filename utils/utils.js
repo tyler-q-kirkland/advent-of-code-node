@@ -23,4 +23,11 @@ function logOutput(year, day, part, output1, output2) {
     );
 }
 
-export { getInput, getInputUnfiltered, logOutput };
+function drawMatrix(input, Matrix) {
+  for (let line of input) {
+    let lineArray = line.split("");
+    Matrix.push(lineArray);
+  }
+}
+
+export { getInput, getInputUnfiltered, logOutput, drawMatrix };
