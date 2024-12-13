@@ -4,7 +4,7 @@ function calculateTokens(game) {
   const results = minTokensToWin(
     [+game[1], +game[2]], //ax, ay
     [+game[3], +game[4]], //bx, by
-    [+game[5], +game[6]] //x, y
+    [+game[5] + extra, +game[6] + extra] //x, y
   );
   if (results) {
     sum += results[0] * 3 + results[1] * 1;
@@ -22,10 +22,11 @@ function minTokensToWin([ax, ay], [bx, by], [X, Y]) {
 let sum = 0;
 const re =
   /(?:Button A: X\+([\d]+), Y\+([\d]+)[\s]+Button B: X\+([\d]+), Y\+([\d]+)[\s]+Prize: X=([\d]+), Y=([\d]+))/g;
+const extra = 10000000000000;
 
 const input = utils.getInputUnfiltered();
 const gameInfo = [...input.matchAll(re)];
 
 gameInfo.forEach(calculateTokens, sum);
 
-utils.logOutput("2024", "13", "A", sum);
+utils.logOutput("2024", "13", "B", sum);
