@@ -10,18 +10,10 @@ class Bot {
   move(dimensions) {
     this.x += this.moveX;
     this.y += this.moveY;
-    if (this.x >= dimensions[0]) {
-      this.x = this.x - dimensions[0];
-    }
-    if (this.y >= dimensions[1]) {
-      this.y = this.y - dimensions[1];
-    }
-    if (0 > this.x) {
-      this.x = this.x + dimensions[0];
-    }
-    if (0 > this.y) {
-      this.y = this.y + dimensions[1];
-    }
+    if (this.x >= dimensions[0]) this.x = this.x - dimensions[0];
+    if (this.y >= dimensions[1]) this.y = this.y - dimensions[1];
+    if (0 > this.x) this.x = this.x + dimensions[0];
+    if (0 > this.y) this.y = this.y + dimensions[1];
   }
   placeOnMap(map) {
     map[this.y][this.x] += 1;
