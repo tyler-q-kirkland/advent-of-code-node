@@ -1,5 +1,5 @@
 import * as utils from "../../utils/utils.js";
-import * as readline from "readline";
+import * as readline from "readline/promises";
 
 class Bot {
   constructor(startX, startY, moveX, moveY) {
@@ -39,12 +39,7 @@ function promptToExit(query) {
     output: process.stdout,
   });
 
-  return new Promise((resolve) =>
-    rl.question(query, (ans) => {
-      rl.close();
-      resolve(ans);
-    })
-  );
+  return rl.question(query).finally(() => rl.close());
 }
 
 function checkNewRecord(map, maxContinuousValue) {
@@ -88,9 +83,11 @@ while (true) {
     console.log(
       `Map after ${i} seconds. New continuous value chain record detected.`
     );
+
     const ans = await promptToExit(
       "Does this look like a Christmas Tree? Y/N "
     );
+
     if (ans === "Y") {
       seconds = i;
       break;
