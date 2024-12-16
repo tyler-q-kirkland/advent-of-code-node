@@ -14,7 +14,8 @@ export default class Map {
       }
     }
   }
-  direction = {
+
+  calcDirection = {
     "^": (coordinates) => [coordinates[0] - 1, coordinates[1]],
     ">": (coordinates) => [coordinates[0], coordinates[1] + 1],
     v: (coordinates) => [coordinates[0] + 1, coordinates[1]],
@@ -23,13 +24,15 @@ export default class Map {
 
   moveBot() {}
 
-  checkDir(y, x, foundBoxes) {
+  checkDir(y, x, foundBoxes, direction) {
+    console.log(direction);
     const box = this.boxes.find(
       (element) => element[0] === y && element[1] === x
     );
     if (box) {
       foundBoxes.push(box);
-      this.checkUp(y - 1, x, foundBoxes);
+      const coordinates = this.calcDirection[direction]([y, x]);
+      this.checkDir(coordinates[0], coordinates[1], foundBoxes, direction);
     } else {
       const wall = this.walls.find(
         (element) => element[0] === y && element[1] === x
