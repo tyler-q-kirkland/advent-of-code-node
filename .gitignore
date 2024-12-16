@@ -1,3 +1,4 @@
 # ignore puzzle inputs, per request of creator
 input.txt
 example_input.txt
+node_modules
