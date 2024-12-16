@@ -8,9 +8,13 @@ const movementSequence = inputSplit[1].replace(/[\n\r\t]/gm, "");
 
 const warehouse = new Map(map);
 
-let foundboxes = [];
 for (let i = 0; i < movementSequence.length; i++) {
-  warehouse.moveBot(6, 1, foundboxes, movementSequence.charAt(i));
+  warehouse.moveBot(movementSequence.charAt(i));
 }
 
-utils.logOutput("2024", "15", "A", "nothing yet");
+const renderedMap = warehouse.renderMap();
+renderedMap.forEach((map) => console.log(map.join("")));
+
+const sum = warehouse.calculateValue();
+
+utils.logOutput("2024", "15", "A", sum);
