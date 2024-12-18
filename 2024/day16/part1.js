@@ -32,8 +32,8 @@ function mapGraph(matrix, startY, startX, startDirection) {
   const h = matrix.length;
   const w = matrix[0].length;
   const queue = [[startY, startX, startDirection]];
-  const mapped = [[startY,startX]];
-  map.addNode([startY,startX]);
+  const mapped = [[startY, startX]];
+  map.addNode([startY, startX]);
   while (queue.length) {
     const currentNode = queue.shift();
 
@@ -47,14 +47,16 @@ function mapGraph(matrix, startY, startX, startDirection) {
         adjIndex[1] >= 0 &&
         adjIndex[0] < h &&
         adjIndex[1] < w &&
-        matrix[adjIndex[0]][adjIndex[1]] !== '#' &&
-        (!(mapped.find((ele) => ele[0] === adjIndex[0] && ele[1] === adjIndex[1])))
-      ) {
-        queue.push([adjIndex[0], adjIndex[1], direction]);
-        mapped.push([adjIndex[0], adjIndex[1]]);
-        map.addNode([adjIndex[0], adjIndex[1]]);
-        map.addEdge([currentNode[0], currentNode[1]], [adjIndex[0], adjIndex[1]], currentNode[2] == direction ? 1 : 1001);
-      }
+        matrix[adjIndex[0]][adjIndex[1]] !== '#')
+        {
+          if (!(mapped.find((ele) => ele[0] === adjIndex[0] && ele[1] === adjIndex[1]))) {
+            queue.push([adjIndex[0], adjIndex[1], direction]);
+            mapped.push([adjIndex[0], adjIndex[1]]);
+            map.addNode([adjIndex[0], adjIndex[1]]);}
+        }
+        if (matrix[adjIndex[0]][adjIndex[1]] !== '#' && !map.hasEdge(currentNode[0], currentNode[1], adjIndex[0], adjIndex[1])){
+        map.addEdge([currentNode[0], currentNode[1]], [adjIndex[0], adjIndex[1]], 1 )}
+      
     }
   }
 }
@@ -77,7 +79,7 @@ const start = locateStart(matrix);
 const end = locateEnd(matrix);
 mapGraph(input, start[0], start[1], direction);
 
-const sum = map.findPathWithDijkstra(start, end);
+const sum = map.findPathWithDijkstra(start, end, direction);
 
 
 utils.logOutput("2024", "16", "A", sum);
