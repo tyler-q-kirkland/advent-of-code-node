@@ -38,8 +38,7 @@ const towels = inputSplit[0].split(", ");
 const designs = inputSplit[1].split(/\r?\n/);
 
 for (let design of designs) {
-  let newSum = testDesign(design, towels);
-  sum += newSum;
+  sum += testDesign(design, towels);
 }
 
 utils.logOutput(2024, 19, "B", sum);
