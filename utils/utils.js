@@ -15,7 +15,7 @@ function getInputUnfiltered() {
 function logOutput(year, day, part, output1, output2) {
   if (output2 !== undefined)
     console.log(
-      `Your outputs for day ${day} of ${year} are ${output1} and ${output2}.`
+      `Your outputs for day ${day} of ${year} are ${output1} for part A and ${output2} for part B.`
     );
   else
     console.log(
